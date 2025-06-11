@@ -43,7 +43,7 @@ const Navbar = () => {
     
    
     <div className="flex text-2xl font-bold items-center pt-3 text-blue-900"> 
-      <span className='text-orange-600  text-4xl'><FaRunning /></span>Athlof<span className='text-orange-600 text-3xl'>Y</span>
+      <span className='text-orange-600  text-3xl'><FaRunning /></span>ATHLOF<span className='text-orange-600 text-5xl'>Y</span>
       </div>
    
   </div>
