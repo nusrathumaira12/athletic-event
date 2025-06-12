@@ -36,12 +36,16 @@ const Register = () => {
             <h1 className="text-5xl font-bold">Register now!</h1>
             <form onSubmit={handleRegister}>
               <fieldset className="fieldset">
+              <label className="label">Name</label>
+              <input type="text" name='name' className="input text-black dark:text-white" placeholder="Name"  />
                 <label className="label">Email</label>
                 <input type="email" name='email' className="input" placeholder="Email" />
+                <label className='label'>Profile Picture URL</label>
+                <input type="PhotoURL" name="photo"   className='input' placeholder='Profile Picture URL'/>
                 <label className="label">Password</label>
                 <input type="password" name='password' className="input" placeholder="Password" />
-                <div><a className="link link-hover">Forgot password?</a></div>
-                <button className="btn btn-neutral mt-4">Register</button>
+                <div>
+                <button className="btn border-none mt-4 bg-blue-900 text-white w-full hover:bg-amber-600">Register</button></div>
               </fieldset>
 
             </form>

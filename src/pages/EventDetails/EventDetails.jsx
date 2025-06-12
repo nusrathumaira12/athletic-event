@@ -1,22 +1,89 @@
-import React, { useContext } from 'react';
-import { Navigate, useLoaderData, useLocation } from 'react-router';
+import React, { useContext, useEffect, useState } from 'react';
+import { Navigate, useLocation, useNavigate, useParams } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
+import Swal from 'sweetalert2';
 
 const EventDetails = () => {
-    const event = useLoaderData()
-    const { user } = useContext(AuthContext);
+    const { id } = useParams()
+   const [event, setEvent] =useState(null)
+   const [loadingEvent, setLoadingEvent] = useState(true);
+    const { user, loading } = useContext(AuthContext);
     const location = useLocation();
-    console.log(location)
+    const navigate = useNavigate();
+    
+    useEffect(() => {
+        fetch(`http://localhost:3000/events/${id}`)
+          .then(res => res.json())
+          .then(data => {
+            setEvent(data);
+            setLoadingEvent(false);
+          })
+          .catch(err => {
+            console.error('Error fetching event:', err);
+            setLoadingEvent(false);
+          });
+      }, [id]);
+
+    if (loading || loadingEvent) {
+        return <span className="loading loading-dots loading-lg text-center block mt-10"></span>
+    }
+
+
   
     if (!user) {
       return <Navigate to="/logIn" state={{from: location}}  replace />;
     }
 
-    console.log(event)
+    if (!event) {
+        return <p className="text-center mt-10 text-red-600">Event not found.</p>;
+      }
+    
+
+  const { title, description, image, date, location: place, eventType } = event;
+
+
+  const handleBooking = () => {
+    const booking = {
+      ...event,
+      user_email: user.email,
+    };
+
+    fetch('http://localhost:3000/bookings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(booking),
+    })
+      .then(res => res.json())
+      .then(data => {
+        Swal.fire('Booked!', 'You have successfully booked this event.', 'success');
+        navigate('/myBookings');
+      })
+      .catch(err => {
+        Swal.fire('Error', 'Failed to book the event.', 'error');
+      });
+  };
     return (
-        <div>
-            hello
+        <div className="min-h-screen bg-[#f5f0ec] px-4 py-10 md:px-16">
+        <div className="max-w-4xl mx-auto bg-white rounded-xl shadow p-6">
+          <img src={image} alt={title} className="w-full h-64 object-cover rounded-md mb-6" />
+          <h1 className="text-3xl font-bold mb-2">{title}</h1>
+          <p className="text-gray-700 mb-4">{description}</p>
+  
+          <div className="text-sm text-gray-600 space-y-1 mb-6">
+            <p><strong>Date:</strong> {new Date(date).toLocaleDateString()}</p>
+            <p><strong>Location:</strong> {place}</p>
+            <p><strong>Type:</strong> {eventType}</p>
+            <p><strong>Your Email:</strong> {user?.email}</p>
+          </div>
+  
+          <button
+            onClick={handleBooking}
+            className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded transition"
+          >
+            Book Now
+          </button>
         </div>
+      </div>
     );
 };
 

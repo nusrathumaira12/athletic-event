@@ -3,7 +3,7 @@ import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import logInLottie from '../../assets/lotties/logIn.json'
 import Lottie from 'lottie-react';
 import SocialLogin from '../Shared/SocialLogin';
-import { useLocation, useNavigate } from 'react-router';
+import { NavLink, useLocation, useNavigate } from 'react-router';
 
 const LogIn = () => {
 
@@ -40,7 +40,10 @@ const LogIn = () => {
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <div className="card-body">
-              <h1 className="text-5xl font-bold">LogIn now!</h1>
+              <h1 className="text-5xl font-bold text-center">LogIn now!</h1>
+              <p className="text-sm text-center dark:text-gray-200">Don't have account?{' '}
+            <NavLink to="/register" className="focus:underline   hover:underline text-amber-600">Register here</NavLink>
+        </p>
               <form onSubmit={ handleLogIn }>
                 <fieldset className="fieldset">
                   <label className="label">Email</label>
