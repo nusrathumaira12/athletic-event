@@ -32,10 +32,10 @@ const FeaturedEvents = ({ events }) => {
                   <h3 className="text-xl font-bold mb-2">{event.eventName}</h3>
                   <p className="text-sm mb-4">{event.description?.slice(0, 100)}...</p>
                   <Link
-                    to={`/event/${event._id || event.id}`}
+                    to={`/events/${event._id || event.id}`}
                     className="inline-block bg-orange-500 text-white font-semibold px-4 py-2 rounded hover:bg-orange-600 transition"
                   >
-                    Learn More
+                   View Details
                   </Link>
                 </div>
               </div>
