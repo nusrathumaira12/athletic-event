@@ -7,7 +7,8 @@ import Register from "../pages/Register/Register";
 import LogIn from "../pages/LogIn/LogIn";
 import Events from "../pages/Events/Events";
 import EventDetails from "../pages/EventDetails/EventDetails";
-
+import CreateEvent from "../pages/CreateEvent/CreateEvent";
+import PrivateRoute from "../routes/PrivateRoute"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,7 +34,12 @@ const router = createBrowserRouter([
         path: '/events/:id',
         Component: EventDetails,
         loader: ({params})=> fetch(`http://localhost:3000/events/${params.id}`)
+      },
+      {
+        path: '/create-event',
+        element: <PrivateRoute><CreateEvent /></PrivateRoute>
       }
+      
     ]
   },
 ]);
