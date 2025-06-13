@@ -28,9 +28,10 @@ const FeaturedEvents = ({ events }) => {
                   <div className="text-gray-500 text-xs">{month}</div>
                   <div className="text-xl font-bold text-black">{day}</div>
                 </div>
-                <div className="absolute bottom-0 bg-gradient-to-t from-black/80 to-transparent text-white p-6 w-full">
-                  <h3 className="text-xl font-bold mb-2">{event.eventName}</h3>
-                  <p className="text-sm mb-4">{event.description?.slice(0, 100)}...</p>
+                <div className="absolute bottom-0 bg-gradient-to-t from-black/80 to-transparent text-white p-6 w-full mt-10">
+                  <h3 className="text-xl font-bold mt-4">{event.eventName}</h3>
+                  <p className="text-sm  mb-1">Location : <span className='text-blue-900 bg-white p-1'>{event.location}</span></p>
+                  
                   <Link
                     to={`/events/${event._id || event.id}`}
                     className="inline-block bg-orange-500 text-white font-semibold px-4 py-2 rounded hover:bg-orange-600 transition"

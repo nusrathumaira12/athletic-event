@@ -3,27 +3,73 @@ import React, { useContext } from 'react';
 import registerLottie from '../../assets/lotties/register.json'
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import SocialLogin from '../Shared/SocialLogin';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router';
 
 const Register = () => {
 
-  const {createUser} = useContext(AuthContext)
+  const {createUser, updateUserProfile} = useContext(AuthContext)
+  const navigate = useNavigate();
 
   const handleRegister = e => {
     e.preventDefault();
     const form = e.target;
+    const name = form.name.value.trim();
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email,password)
+    const photo = form.photo.value.trim();
 
-    // createUser
+    console.log(email,password,name,photo)
+    if (!name || !email || !photo || !password) {
+      return Swal.fire({
+        icon: 'error',
+        title: 'Missing Fields',
+        text: 'Please fill out all the fields.',
+      });
+    }
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      return Swal.fire({
+        icon: 'error',
+        title: 'Weak Password',
+        text: 'Password must be at least 6 characters long and include uppercase and lowercase letters.',
+      });
+    }
+
+
     createUser(email, password)
     .then(result => {
-      console.log(result)
+      // Update profile with name & photo
+      updateUserProfile(name, photo)
+        .then(() => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Registration Successful!',
+            text: 'You are now registered.',
+            showConfirmButton: false,
+            timer: 3000,
+            position: 'top-end'
+          });
+          form.reset();
+          navigate('/');
+        })
+        .catch((error) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Profile Update Failed',
+            text: error.message,
+          });
+        });
     })
-    .catch(error => {
-      console.log(error)
-    })
-  }
+    .catch((error) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Registration Failed',
+        text: error.message,
+      });
+    });
+};
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">

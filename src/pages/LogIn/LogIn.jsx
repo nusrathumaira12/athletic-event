@@ -4,6 +4,7 @@ import logInLottie from '../../assets/lotties/logIn.json'
 import Lottie from 'lottie-react';
 import SocialLogin from '../Shared/SocialLogin';
 import { NavLink, useLocation, useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const LogIn = () => {
 
@@ -24,6 +25,15 @@ const LogIn = () => {
         logInUser(email, password)
         .then(result => {
             console.log(result.user)
+             Swal.fire({
+                        icon: 'success',
+                        title: 'Login Successful!',
+                        text: 'Welcome back! You have successfully logged into your account.',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        position: 'top-end'
+                      });
+                      form.reset();
             navigate(from)
         })
         .catch(error => {

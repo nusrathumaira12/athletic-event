@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Banner from './Banner';
 import FeaturedEvents from './FeaturedEvents';
+import Sponsors from './Sponsors';
 
 const Home = () => {
 const [events, setEvents] = useState([])
@@ -14,6 +15,7 @@ fetch('http://localhost:3000/featured-events')
         <div>
             <Banner></Banner>
             <FeaturedEvents events={events}></FeaturedEvents>
+            <Sponsors></Sponsors>
         </div>
     );
 };
