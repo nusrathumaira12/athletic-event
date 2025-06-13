@@ -44,8 +44,12 @@ const EventDetails = () => {
 
   const handleBooking = () => {
     const booking = {
-      ...event,
-      user_email: user.email,
+      eventId: event._id,        // Required
+      userEmail: user.email,     // Required
+      eventName: event.eventName,
+      date: event.eventDate || event.date,
+      location: event.location,
+      image: event.image,
     };
 
     fetch('http://localhost:3000/bookings', {
