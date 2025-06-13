@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
+import Swal from 'sweetalert2';
 
 const CreateEvent = () => {
     const {user} = useContext(AuthContext)
@@ -12,7 +13,7 @@ const CreateEvent = () => {
         const newEvent = {
             eventName: form.eventName.value,
             eventType: form.eventType.value,
-            eventDate: form.eventDate.value,
+            eventDate: form.date.value,
             description: form.description.value,
             image: form.image.value,
             creatorEmail: user?.email || 'N/A',
@@ -20,6 +21,7 @@ const CreateEvent = () => {
 
         }
 
+        console.log("New event date:", newEvent.eventDate);
 
         fetch('http://localhost:3000/events', {
             method: 'POST',
@@ -30,8 +32,24 @@ const CreateEvent = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            if(data.insertedId || data.success){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Event Created!',
+                    text: 'Your event has been successfully posted.',
+                  });
+                  form.reset();
+            }
         })
+
+        .catch(err => {
+            console.error(err);
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Something went wrong while creating the event.',
+            });
+          });
     }
     return (
         <div className="min-h-screen bg-base-200 flex justify-center items-center px-4 py-10">
@@ -57,7 +75,7 @@ const CreateEvent = () => {
   
             <div>
               <label className="block font-semibold">Event Date</label>
-              <input type="date" name="eventDate" required className="input input-bordered w-full" />
+              <input type="date" name="date" required className="input input-bordered w-full" />
             </div>
   
             <div>

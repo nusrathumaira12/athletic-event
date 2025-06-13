@@ -21,7 +21,7 @@ const Events = () => {
   return (
     <div className="bg-[#f5f0ec] min-h-screen py-12 px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
+       
         <div className="flex justify-between items-center mb-12 pr-30">
           <div className='text-center  ml-30'>
             <h2 className="text-xs font-semibold text-orange-600 uppercase items-center text-start">|| ATHLOFY Programs ||</h2>
@@ -35,7 +35,7 @@ const Events = () => {
           </button>
         </div>
 
-        {/* Loading or Event Cards */}
+       
         {loading ? (
           <p className="text-center text-lg font-medium">Loading events...</p>
         ) : events.length === 0 ? (
@@ -67,8 +67,8 @@ const Events = () => {
                   <p className="text-sm text-gray-700 mb-4">{event.description}</p>
                   <div className="text-sm text-gray-600 space-y-1 mb-4">
                     <p><span className="font-semibold">Type:</span> {event.eventType}</p>
-                    <p><span className="font-semibold">Location:</span> {event.location}</p>
-                    <p><span className="font-semibold">Time:</span> {event.date}</p>
+                    <p><span className="font-semibold">Location:</span> {event.location || "Not Selected"}</p>
+                    <p><span className="font-semibold">Date:</span> {event.eventDate}  {event.date}</p>
                   </div>
                   <Link
                     to={`/events/${event._id || event.id}`}

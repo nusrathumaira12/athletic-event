@@ -10,9 +10,10 @@ const FeaturedEvents = ({ events }) => {
   
       <div className="grid gap-10 md:grid-cols-1">
           {events.map((event) => {
-            const dateObj = new Date(event.date);
-            const month = dateObj.toLocaleString('default', { month: 'short' }).toUpperCase();
-            const day = dateObj.getDate().toString().padStart(2, '0');
+   const date = new Date(event.eventDate || event.date);
+   const month = !isNaN(date) ? date.toLocaleString('default', { month: 'short' }).toUpperCase() : 'N/A';
+   const day = !isNaN(date) ? date.getDate().toString().padStart(2, '0') : '--';
+   
 
             return (
               <div
@@ -31,7 +32,7 @@ const FeaturedEvents = ({ events }) => {
                 <div className="absolute bottom-0 md:flex bg-gradient-to-t from-black/80 to-transparent text-white p-6 w-full mt-10 justify-between items-end">
                  <div>
                  <h3 className="text-xl font-bold mt-4">{event.eventName}</h3>
-                 <p className="text-sm  mb-2 mt-2">Location : <span className='text-blue-900 bg-white p-2 rounded-sm'>{event.location}</span></p>
+                 <p className="text-sm  mb-2 mt-2">Location : <span className='text-blue-900 bg-white p-2 rounded-sm'>{event.location || "Not Selected"}</span></p>
                  </div>
                   
                   <div>

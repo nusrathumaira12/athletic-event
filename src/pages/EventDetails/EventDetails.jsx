@@ -39,7 +39,7 @@ const EventDetails = () => {
       }
     
 
-  const { title, description, image, date, location: place, eventType } = event;
+  const { eventName, description, image, eventDate, location: place, eventType } = event;
 
 
   const handleBooking = () => {
@@ -65,13 +65,13 @@ const EventDetails = () => {
     return (
         <div className="min-h-screen bg-[#f5f0ec] px-4 py-10 md:px-16">
         <div className="max-w-4xl mx-auto bg-white rounded-xl shadow p-6">
-          <img src={image} alt={title} className="w-full h-64 object-cover rounded-md mb-6" />
-          <h1 className="text-3xl font-bold mb-2">{title}</h1>
+          <img src={image} alt={eventName} className="w-full h-64 object-cover rounded-md mb-6" />
+          <h1 className="text-3xl font-bold mb-2">{eventName}</h1>
           <p className="text-gray-700 mb-4">{description}</p>
   
           <div className="text-sm text-gray-600 space-y-1 mb-6">
-            <p><strong>Date:</strong> {new Date(date).toLocaleDateString()}</p>
-            <p><strong>Location:</strong> {place}</p>
+            <p><strong>Date:</strong> {new Date(eventDate || event.date).toLocaleDateString()}</p>
+            <p><strong>Location:</strong> {place || 'N/A'}</p>
             <p><strong>Type:</strong> {eventType}</p>
             <p><strong>Your Email:</strong> {user?.email}</p>
           </div>
