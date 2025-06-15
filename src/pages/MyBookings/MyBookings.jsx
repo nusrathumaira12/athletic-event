@@ -9,7 +9,9 @@ const MyBookings = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/myBookings?email=${user.email}`)
+      fetch(`http://localhost:3000/myBookings?email=${user.email}`,{
+        credentials: 'include'
+      })
         .then(res => res.json())
         .then(data => setBookings(data));
     }
@@ -28,6 +30,7 @@ const MyBookings = () => {
       if (result.isConfirmed) {
         fetch(`http://localhost:3000/myBookings/${id}`, {
           method: 'DELETE',
+          credentials: 'include',
         })
           .then(res => res.json())
           .then(data => {

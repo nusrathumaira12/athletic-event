@@ -30,9 +30,13 @@ const profileMenu = (
   <ul className="p-2 shadow menu dropdown-content bg-blue-800 text-white rounded-box w-52 mt-2 z-[1000]">
     <li><NavLink to="/book-event">Book Event</NavLink></li>
     <li><NavLink to="/myBookings">My Bookings</NavLink></li>
-    {user?.role === 'organizer' && (
-      <li><NavLink to="/manage-events">Manage Events</NavLink></li>
-    )}
+    {user 
+    // ?.role === 'organizer'
+     && <>
+      <li><NavLink to="/create-event">Create Events</NavLink></li>
+      <li><NavLink to="/manageEvents">Manage Events</NavLink></li>
+      </>
+    }
   </ul>
 );
   return (

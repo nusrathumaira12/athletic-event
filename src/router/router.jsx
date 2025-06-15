@@ -7,9 +7,12 @@ import Register from "../pages/Register/Register";
 import LogIn from "../pages/LogIn/LogIn";
 import Events from "../pages/Events/Events";
 import EventDetails from "../pages/EventDetails/EventDetails";
-import CreateEvent from "../pages/CreateEvent/CreateEvent";
 import PrivateRoute from "../routes/PrivateRoute"
 import MyBookings from "../pages/MyBookings/MyBookings";
+
+import ManageEvents from "../pages/ManageEvents/ManageEvents";
+import CreateEvent from "../pages/CreateEvent/CreateEvent";
+import UpdateEvents from "../pages/UpdateEvent/UpdateEvents";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,6 +48,26 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <MyBookings></MyBookings>
         </PrivateRoute>
+      },
+      {
+        path: "/manageEvents",
+        element: <PrivateRoute>
+          <ManageEvents></ManageEvents>
+        </PrivateRoute>
+      },
+      {
+        path: '/create-event',
+        element: <PrivateRoute>
+          <CreateEvent></CreateEvent>
+           </PrivateRoute>
+      },
+      {
+        path: '/updateEvent/:id',
+        element: <PrivateRoute>
+          <UpdateEvents></UpdateEvents>
+        </PrivateRoute>
+        
+       
       }
       
     ]
