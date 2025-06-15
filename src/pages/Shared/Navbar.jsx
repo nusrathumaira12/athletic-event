@@ -21,26 +21,46 @@ const Navbar = () => {
 
   const links =
     <>
-      <li><NavLink to="/">Home</NavLink></li>
-      <li><NavLink to="/events">Events Page</NavLink></li>
+      <li><NavLink to="/"  className={({ isActive }) =>
+      isActive
+        ? 'text-orange-500 font-bold'
+        : 'text-gray-500 font-bold'
+    }>Home</NavLink></li>
+      <li><NavLink to="/events"  className={({ isActive }) =>
+      isActive
+        ? 'text-orange-500 font-bold '
+        : 'text-gray-500 font-bold'
+    }>Events Page</NavLink></li>
 
 </>
 
 const profileMenu = (
   <ul className="p-2 shadow menu dropdown-content bg-blue-800 text-white rounded-box w-52 mt-2 z-[1000]">
-    <li><NavLink to="/book-event">Book Event</NavLink></li>
-    <li><NavLink to="/myBookings">My Bookings</NavLink></li>
+    <li><NavLink to="/book-event"    className={({ isActive }) =>
+      isActive ? 'font-bold text-orange-300' : 'font-bold'
+    }
+  >Book Event</NavLink></li>
+    <li><NavLink to="/myBookings"   className={({ isActive }) =>
+      isActive ? 'font-bold text-orange-300' : 'font-bold'
+    }
+  >My Bookings</NavLink></li>
     {user 
     // ?.role === 'organizer'
      && <>
-      <li><NavLink to="/create-event">Create Events</NavLink></li>
-      <li><NavLink to="/manageEvents">Manage Events</NavLink></li>
+      <li><NavLink to="/create-event" className={({ isActive }) =>
+      isActive ? 'font-bold text-orange-300' : 'font-bold'
+    }
+>Create Events</NavLink></li>
+      <li><NavLink to="/manageEvents" className={({ isActive }) =>
+      isActive ? 'font-bold text-orange-300' : 'font-bold'
+    }
+>Manage Events</NavLink></li>
       </>
     }
   </ul>
 );
   return (
-    <div className="navbar bg-base-100 shadow-sm px-4">
+    <div className="navbar bg-base-100 shadow-sm px-4 pb-2">
       <div className="navbar-start">
         <div className="dropdown lg:hidden">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -86,12 +106,12 @@ const profileMenu = (
               </div>
               {profileMenu}
 </div>
-              <button onClick={handleLogOut} className="btn btn-outline btn-sm">Logout</button>
+              <button onClick={handleLogOut} className="btn btn-outline bg-red-500 text-white btn-sm">Logout</button>
             </>
           ) : (
             <>
-              <NavLink className="btn btn-sm" to="/register">Register</NavLink>
-              <NavLink className="btn btn-sm" to="/logIn">LogIn</NavLink>
+              <NavLink className="btn btn-sm bg-orange-500 text-white" to="/register">Register</NavLink>
+              <NavLink className="btn btn-sm bg-orange-500 text-white" to="/logIn">LogIn</NavLink>
 
             </>
           )}

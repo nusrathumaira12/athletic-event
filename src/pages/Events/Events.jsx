@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router';
 
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchText, setSearchText] = useState('');
+
 
   useEffect(() => {
     fetch('http://localhost:3000/events')
@@ -18,8 +21,18 @@ const Events = () => {
       });
   }, []);
 
+  const filteredEvents = events.filter(event =>
+    event.eventName.toLowerCase().includes(searchText.toLowerCase()) ||
+    event.location?.toLowerCase().includes(searchText.toLowerCase())
+  );
+  
+
   return (
+    
     <div className="bg-[#f5f0ec] min-h-screen py-12 px-4 md:px-16">
+      <Helmet>
+              <title>Events | Athlofy</title>
+            </Helmet>
       <div className="max-w-7xl mx-auto">
        
         <div className="flex justify-between items-center mb-12 pr-30">
@@ -36,13 +49,24 @@ const Events = () => {
         </div>
 
        
+        <div className="mb-8 md:ml-31 ">
+  <input
+    type="text"
+    placeholder="Search by event name or location..."
+    className="w-full md:w-1/2 px-4 py-2  border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+    value={searchText}
+    onChange={(e) => setSearchText(e.target.value)}
+  />
+</div>
+
         {loading ? (
           <p className="text-center text-lg font-medium">Loading events...</p>
         ) : events.length === 0 ? (
           <p className="text-center text-lg text-gray-600">No events available.</p>
         ) : (
           <div className="grid md:grid-cols-2 gap-10 md:mx-30 rounded-3xl">
-            {events.map((event) => (
+            {filteredEvents.map((event) => (
+
               <div
                 key={event._id}
                 className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100"
@@ -79,6 +103,11 @@ const Events = () => {
                 </div>
               </div>
             ))}
+              {!loading && filteredEvents.length === 0 && (
+              <p className="text-center text-gray-600 font-medium col-span-2">
+                No matching events found.
+              </p>
+            )}
           </div>
         )}
       </div>

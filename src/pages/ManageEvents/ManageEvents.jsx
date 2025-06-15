@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router';
+import { Helmet } from 'react-helmet-async';
 
 const ManageEvents = () => {
     const { user, loading } = useContext(AuthContext);
@@ -48,6 +49,9 @@ const ManageEvents = () => {
 
     return (
         <div className="container mx-auto px-4 py-6">
+             <Helmet>
+                            <title>ManageEvent |Athofy</title>
+                        </Helmet>
             <h2 className="text-2xl font-bold mb-6">Manage Your Events</h2>
             {events.length === 0 ? (
                 <p>No events created by you yet.</p>

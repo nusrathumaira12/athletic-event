@@ -13,6 +13,7 @@ import MyBookings from "../pages/MyBookings/MyBookings";
 import ManageEvents from "../pages/ManageEvents/ManageEvents";
 import CreateEvent from "../pages/CreateEvent/CreateEvent";
 import UpdateEvents from "../pages/UpdateEvent/UpdateEvents";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -68,6 +69,13 @@ const router = createBrowserRouter([
         </PrivateRoute>
         
        
+      },
+      {
+        
+          path: '*',
+          element: <NotFoundPage />
+       
+        
       }
       
     ]

@@ -2,12 +2,15 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const UpdateEvents = () => {
     const {id} = useParams()
    const {user} = useContext(AuthContext)
     const [eventData, setEventData] = useState(null)
     const navigate = useNavigate()
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
 
     useEffect(() => {
         fetch(`http://localhost:3000/events/${id}`, {
@@ -20,6 +23,7 @@ const UpdateEvents = () => {
 
 const handleUpdateEvent = (e) => {
     e.preventDefault()
+    setIsSubmitting(true);
     const form = e.target;
 
     const updatedEvent = {
@@ -41,6 +45,7 @@ const handleUpdateEvent = (e) => {
     })
     .then(res => res.json())
     .then(data => {
+        setIsSubmitting(false);
         if(data.modifiedCount > 0 || data.success) {
             Swal.fire({
                 icon: 'success',
@@ -52,6 +57,7 @@ const handleUpdateEvent = (e) => {
         
     })
     .catch(err => {
+        setIsSubmitting(false)
         console.error(err);
         Swal.fire({
             icon: 'error',
@@ -65,6 +71,9 @@ if (!eventData) return <p className="text-center mt-10">Loading...</p>;
 
     return (
                <div className="min-h-screen bg-base-200 flex justify-center items-center px-4 py-10">
+                 <Helmet>
+                                <title>UpdateEvent |Athofy</title>
+                            </Helmet>
             <div className="w-full max-w-2xl bg-white p-8 rounded-lg shadow-md">
                 <h2 className="text-2xl font-bold mb-6 text-center text-orange-600">Update Event</h2>
                 <form onSubmit={handleUpdateEvent} className="space-y-4">
@@ -111,9 +120,14 @@ if (!eventData) return <p className="text-center mt-10">Loading...</p>;
                         </div>
                     </div>
 
-                    <button type="submit" className="btn bg-orange-600 text-white w-full hover:bg-orange-700">
-                        Update Event
-                    </button>
+                    <button type="submit" className="btn bg-orange-600 text-white w-full hover:bg-orange-700" disabled={isSubmitting}>
+    {isSubmitting ? (
+        <span className="loading loading-spinner loading-sm"></span>
+    ) : (
+        'Update Event'
+    )}
+</button>
+
                 </form>
             </div>
         </div>
