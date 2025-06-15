@@ -3,6 +3,7 @@ import { Navigate, useLocation, useNavigate, useParams } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
 const EventDetails = () => {
   const { id } = useParams();
@@ -93,6 +94,9 @@ const EventDetails = () => {
   return (
     <section className="dark:bg-gray-100 dark:text-gray-800 min-h-screen px-4 pb-12 pt-5 md:px-16 bg-orange-50">
       <div className="container flex flex-col-reverse justify-center mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+        <Helmet>
+          <title>EventDetails|Athlofy</title>
+        </Helmet>
         
         {/* Image Section Left */}
         <motion.div
