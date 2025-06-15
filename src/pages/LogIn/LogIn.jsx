@@ -42,13 +42,13 @@ const LogIn = () => {
        
       }
     return (
-        <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero bg-[#f5f0ec] min-h-screen">
+        <div className="hero-content gap-3 flex-col lg:flex-row-reverse md:ml-20">
           <div className="text-center lg:text-left">
-            <Lottie style={{ width: '200px' }} animationData={logInLottie} loop={true}></Lottie>
+            <Lottie style={{ width: '300px' }} animationData={logInLottie} loop={true}></Lottie>
   
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl text-blue-950 py-4">
             <div className="card-body">
               <h1 className="text-5xl font-bold text-center">LogIn now!</h1>
               <p className="text-sm text-center dark:text-gray-200">Don't have account?{' '}
@@ -61,7 +61,7 @@ const LogIn = () => {
                   <label className="label">Password</label>
                   <input type="password" name='password' className="input" placeholder="Password" />
                   <div><a className="link link-hover">Forgot password?</a></div>
-                  <button className="btn btn-neutral mt-4">LogIn</button>
+                  <button className="btn  mt-4 bg-blue-900 text-white">LogIn</button>
                 </fieldset>
               </form>
               <SocialLogin from={from}></SocialLogin>

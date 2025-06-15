@@ -4,6 +4,7 @@ import FeaturedEvents from './FeaturedEvents';
 import Sponsors from './Sponsors';
 import AboutAthlofy from './AboutAthlofy';
 import { Helmet } from 'react-helmet-async';
+import Testimonial from './Testimonial';
 
 const Home = () => {
 const [events, setEvents] = useState([])
@@ -21,6 +22,7 @@ fetch('http://localhost:3000/featured-events')
             <Banner></Banner>
             <FeaturedEvents events={events}></FeaturedEvents>
             <AboutAthlofy></AboutAthlofy>
+            <Testimonial></Testimonial>
             <Sponsors></Sponsors>
         </div>
     );

@@ -71,13 +71,13 @@ const Register = () => {
     });
 };
   return (
-    <div className="hero bg-base-200 min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+    <div className="hero bg-[#f5f0ec] min-h-screen">
+      <div className="hero-content gap-3 flex-col lg:flex-row-reverse md:ml-12">
         <div className="text-center lg:text-left">
-          <Lottie style={{ width: '200px' }} animationData={registerLottie} loop={true}></Lottie>
+          <Lottie style={{ width: '300px' }} animationData={registerLottie} loop={true}></Lottie>
 
         </div>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl text-blue-950">
           <div className="card-body">
             <h1 className="text-5xl font-bold">Register now!</h1>
             <form onSubmit={handleRegister}>

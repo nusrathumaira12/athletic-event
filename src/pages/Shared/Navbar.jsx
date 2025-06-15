@@ -60,7 +60,7 @@ const profileMenu = (
   </ul>
 );
   return (
-    <div className="navbar bg-base-100 shadow-sm px-4 pb-2">
+    <div className="navbar bg-base-100 shadow-sm md:px-8 pb-4">
       <div className="navbar-start">
         <div className="dropdown lg:hidden">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -110,8 +110,8 @@ const profileMenu = (
             </>
           ) : (
             <>
-              <NavLink className="btn btn-sm bg-orange-500 text-white" to="/register">Register</NavLink>
-              <NavLink className="btn btn-sm bg-orange-500 text-white" to="/logIn">LogIn</NavLink>
+              <NavLink className="btn  bg-orange-500 text-white" to="/register">Register</NavLink>
+              <NavLink className="btn  bg-orange-500 text-white" to="/logIn">LogIn</NavLink>
 
             </>
           )}

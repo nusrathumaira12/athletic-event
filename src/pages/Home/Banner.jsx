@@ -64,7 +64,7 @@ const Banner= () => {
         {athleticEvents.map((event) => (
           <SwiperSlide key={event.id}>
             <div
-              className="h-[600px] flex items-center justify-start bg-cover bg-center text-white"
+              className="h-[700px] flex items-center justify-start bg-cover bg-center text-white"
               style={{ backgroundImage: `url(${event.image})` }}
             >
               <div className="font-bold bg-opacity-50 p-6 text-3xl rounded-xl text-start max-w-2xl ml-10">
