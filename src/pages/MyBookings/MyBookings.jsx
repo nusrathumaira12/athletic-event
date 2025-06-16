@@ -1,21 +1,23 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
+import axiosSecure from '../../api/axiosSecure';
 
 const MyBookings = () => {
   const { user, loading } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
   const [isTableView, setIsTableView] = useState(true);
+  const [deletingId, setDeletingId] = useState(null);
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/myBookings?email=${user.email}`,{
-        credentials: 'include'
-      })
-        .then(res => res.json())
-        .then(data => setBookings(data));
+      axiosSecure
+        .get(`/myBookings?email=${user.email}`)
+        .then(res => setBookings(res.data))
+        .catch(err => console.error(err));
     }
   }, [user?.email]);
+  
 
   const handleDelete = id => {
     Swal.fire({
@@ -28,17 +30,21 @@ const MyBookings = () => {
       confirmButtonText: 'Yes, cancel it!',
     }).then(result => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/myBookings/${id}`, {
-          method: 'DELETE',
-          credentials: 'include',
+        setDeletingId(id);
+        axiosSecure
+        .delete(`/myBookings/${id}`)
+        .then(res => {
+          if (res.data.deletedCount > 0) {
+            setBookings(prev => prev.filter(b => b._id !== id));
+            Swal.fire('Deleted!', 'Booking has been canceled.', 'success');
+          }
         })
-          .then(res => res.json())
-          .then(data => {
-            if (data.deletedCount > 0) {
-              setBookings(prev => prev.filter(b => b._id !== id));
-              Swal.fire('Deleted!', 'Booking has been canceled.', 'success');
-            }
-          });
+        .catch(error => {
+          console.error(error);
+          Swal.fire('Error', 'Something went wrong while deleting', 'error');
+        })
+        .finally(() => setDeletingId(null));
+      
       }
     });
   };
@@ -80,8 +86,9 @@ const MyBookings = () => {
                     <button
                       onClick={() => handleDelete(booking._id)}
                       className="btn btn-sm bg-red-600 text-white hover:bg-red-700"
+                      disabled={deletingId === booking._id}
                     >
-                      Cancel
+                      {deletingId === booking._id ? 'Cancelling...' : 'Cancel'}
                     </button>
                   </td>
                 </tr>
@@ -104,8 +111,9 @@ const MyBookings = () => {
               <button
                 onClick={() => handleDelete(booking._id)}
                 className="btn btn-sm bg-red-600 text-white absolute right-4 bottom-12"
+                disabled={deletingId === booking._id}
               >
-                Cancel
+               {deletingId === booking._id ? 'Cancelling...' : 'Cancel'}
               </button>
             </div>
           ))}

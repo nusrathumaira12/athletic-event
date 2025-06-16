@@ -3,6 +3,7 @@ import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router';
 import { Helmet } from 'react-helmet-async';
+import axiosSecure from '../../api/axiosSecure';
 
 const ManageEvents = () => {
     const { user, loading } = useContext(AuthContext);
@@ -11,11 +12,10 @@ const ManageEvents = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/myCreatedEvents?email=${user.email}`, {
-                credentials: 'include'
-            })
-                .then(res => res.json())
-                .then(data => setEvents(data));
+            axiosSecure
+                .get(`/myCreatedEvents?email=${user.email}`)
+                .then(res => setEvents(res.data))
+                .catch(err => console.error(err));
         }
     }, [user?.email]);
 
@@ -30,16 +30,16 @@ const ManageEvents = () => {
             confirmButtonText: 'Yes, delete it!',
         }).then(result => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/events/${id}`, {
-                    method: 'DELETE',
-                    credentials: 'include'
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.deletedCount > 0) {
+                axiosSecure.delete(`/events/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
                             setEvents(prev => prev.filter(ev => ev._id !== id));
                             Swal.fire('Deleted!', 'Event has been removed.', 'success');
                         }
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        Swal.fire('Error', 'Something went wrong', 'error');
                     });
             }
         });
@@ -49,9 +49,9 @@ const ManageEvents = () => {
 
     return (
         <div className="container mx-auto px-4 py-6">
-             <Helmet>
-                            <title>ManageEvent |Athofy</title>
-                        </Helmet>
+            <Helmet>
+                <title>ManageEvent | Athofy</title>
+            </Helmet>
             <h2 className="text-2xl font-bold mb-6">Manage Your Events</h2>
             {events.length === 0 ? (
                 <p>No events created by you yet.</p>
@@ -60,7 +60,6 @@ const ManageEvents = () => {
                     <table className="table w-full bg-white shadow rounded">
                         <thead className="bg-orange-200">
                             <tr>
-
                                 <th>Serial No</th>
                                 <th>Event Name</th>
                                 <th>Date</th>
@@ -71,7 +70,6 @@ const ManageEvents = () => {
                         <tbody>
                             {events.map((event, index) => (
                                 <tr key={event._id}>
-
                                     <td>{index + 1}</td>
                                     <td>{event.eventName}</td>
                                     <td>{event.eventDate}</td>

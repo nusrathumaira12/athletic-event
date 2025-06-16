@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import { useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const SocialLogin = ({from}) => {
 
@@ -11,7 +12,19 @@ const SocialLogin = ({from}) => {
         signInWithGoogle()
         .then(result => {
             console.log(result)
-            navigate(from || '/')
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Login Successful',
+                text: 'Welcome back!',
+                timer: 2000,
+                showConfirmButton: false,
+
+            })
+            setTimeout(()=> {
+                navigate(from || '/')
+            }, 1500)
+           
         })
         .catch(error => {
             console.log(error)

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import axiosSecure from '../../api/axiosSecure';
 
 const UpdateEvents = () => {
     const {id} = useParams()
@@ -35,18 +36,10 @@ const handleUpdateEvent = (e) => {
         creatorName: form.creatorName.value,
     }
 
-    fetch(`http://localhost:3000/events/${id}`, {
-        method: 'PATCH',
-        headers: {
-             'Content-Type': 'application/json'
-        },
-        credentials: 'include',
-        body: JSON.stringify(updatedEvent)
-    })
-    .then(res => res.json())
-    .then(data => {
+    axiosSecure.patch(`/events/${id}`, updatedEvent)
+    .then(res => {
         setIsSubmitting(false);
-        if(data.modifiedCount > 0 || data.success) {
+        if(res.data.modifiedCount > 0 || res.data.success) {
             Swal.fire({
                 icon: 'success',
                 title: 'Updated!',

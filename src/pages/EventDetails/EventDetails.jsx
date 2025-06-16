@@ -4,6 +4,7 @@ import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
+import axios from 'axios';
 
 const EventDetails = () => {
   const { id } = useParams();
@@ -52,11 +53,12 @@ const EventDetails = () => {
 
   const alreadyBooked = userBookings.some(booking => booking.eventId === id);
 
-  const handleBooking = () => {
+  const handleBooking = async () => {
     if (alreadyBooked) {
       Swal.fire('Already Booked!', 'You have already booked this event.', 'warning');
       return;
     }
+  
     const booking = {
       eventId: event._id,
       userEmail: user.email,
@@ -65,29 +67,27 @@ const EventDetails = () => {
       location: event.location,
       image: event.image,
     };
-
-    fetch('http://localhost:3000/bookings', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(booking),
-    })
-      .then(res => {
-        if (res.status === 409) {
-          Swal.fire('Already Booked!', 'You have already booked this event.', 'warning');
-          return;
-        }
-        return res.json();
-      })
-      .then(data => {
-        if (data?.insertedId) {
-          Swal.fire('Booked!', 'You have successfully booked this event.', 'success');
-          navigate('/myBookings');
-        }
-      })
-      .catch(err => {
-        Swal.fire('Error', 'Failed to book the event.', 'error');
+  
+    try {
+      const res = await axios.post('http://localhost:3000/bookings', booking, {
+        withCredentials: true,
       });
+  
+      if (res.status === 409) {
+        Swal.fire('Already Booked!', 'You have already booked this event.', 'warning');
+        return;
+      }
+  
+      if (res.data?.insertedId) {
+        Swal.fire('Booked!', 'You have successfully booked this event.', 'success');
+        navigate('/myBookings');
+      }
+    } catch (err) {
+      console.error(err);
+      Swal.fire('Error', err?.response?.data?.message || 'Failed to book the event.', 'error');
+    }
   };
+
 
   const { eventName, description, image, eventDate, location: place, eventType } = event;
 
