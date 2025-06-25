@@ -54,19 +54,19 @@ cd athletic-event
 ```
 
 2️⃣ Install Dependencies  
-3️⃣ Add Firebase and Backend Config  
-4️⃣ Start the Development Server
+
+
 
 ```bash
 npm install
 ```
-
+3️⃣ Add Firebase and Backend Config  
 ```ini
 VITE_FIREBASE_API_KEY=your_api_key  
 VITE_FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com  
 VITE_API_URL=https://your-backend-url.com
 ```
-
+4️⃣ Start the Development Server
 ```bash
 npm run dev
 ```
