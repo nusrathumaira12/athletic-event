@@ -10,24 +10,37 @@ A responsive web app for discovering and booking athletic events with real-time 
 
 ---
 
+## 📂 Client Repository
+
+🔗 [https://github.com/nusrathumaira12/athletic-event](https://github.com/nusrathumaira12/athletic-event)
+
+---
+
+## 📡 Backend Repository
+
+🔒 This project uses a separate backend (Node.js, Express, MongoDB) for secure API and JWT auth.  
+🔐 Backend repo is currently private. It can be shared upon request.
+
+---
+
 ## 🛠️ Tech Stack
 
-- **Frontend:** React, Tailwind CSS
-- **Authentication:** Firebase (Email/Password + Google)
-- **Protected Routes:** JWT Tokens with axios
-- **Routing:** React Router DOM
-- **State & Effects:** React Hooks
+- **Frontend:** React, Tailwind CSS  
+- **Authentication:** Firebase (Email/Password + Google)  
+- **Protected Routes:** JWT Tokens with axios  
+- **Routing:** React Router DOM  
+- **State & Effects:** React Hooks  
 
 ---
 
 ## ✨ Features
 
-- 🔐 Firebase login and registration (Email & Google)
-- 🛡️ JWT-based route protection (using custom backend)
-- 📅 View event list with search by name/location
-- 🧾 My Bookings page with delete functionality
-- 🧰 Toggle layout: Table/Card View
-- 🌐 Fully responsive on mobile and desktop
+- 🔐 Firebase login and registration (Email & Google)  
+- 🛡️ JWT-based route protection (using custom backend)  
+- 📅 View event list with search by name/location  
+- 🧾 My Bookings page with delete functionality  
+- 🧰 Toggle layout: Table/Card View  
+- 🌐 Fully responsive on mobile and desktop  
 
 ---
 
@@ -54,19 +67,19 @@ cd athletic-event
 ```
 
 2️⃣ Install Dependencies  
-
-
+3️⃣ Add Firebase and Backend Config  
+4️⃣ Start the Development Server
 
 ```bash
 npm install
 ```
-3️⃣ Add Firebase and Backend Config  
+
 ```ini
 VITE_FIREBASE_API_KEY=your_api_key  
 VITE_FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com  
 VITE_API_URL=https://your-backend-url.com
 ```
-4️⃣ Start the Development Server
+
 ```bash
 npm run dev
 ```
@@ -75,8 +88,7 @@ npm run dev
 
 ---
 
-
-🙋‍♀️ Author
+🙋‍♀️ Author  
 Nusrat Humaira  
 Frontend Developer | MERN Stack Learner  
 📧 nusrathum31@gmail.com  
