@@ -66,7 +66,7 @@ if (!eventData) return <p className="text-center mt-10">Loading...</p>;
     return (
                <div className="min-h-screen bg-base-200 flex justify-center items-center px-4 py-10">
                  <Helmet>
-                                <title>UpdateEventPage |Athofy</title>
+                                <title>UpdateEvent |Athofy</title>
                             </Helmet>
             <div className="w-full max-w-2xl bg-white p-8 rounded-lg shadow-md">
                 <h2 className="text-2xl font-bold mb-6 text-center text-orange-600">Update Event</h2>
