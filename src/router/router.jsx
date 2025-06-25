@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: '/events/:id',
         Component: EventDetails,
-        loader: ({params})=> fetch(`http://localhost:3000/events/${params.id}`)
+        loader: ({params})=> fetch(`https://athletic-event-server.vercel.app/events/${params.id}`)
       },
       {
         path: '/create-event',

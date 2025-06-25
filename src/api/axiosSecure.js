@@ -2,7 +2,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://athletic-event-server.vercel.app',
     withCredentials: true,
 })
 

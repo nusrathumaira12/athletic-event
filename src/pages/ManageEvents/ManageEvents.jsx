@@ -64,6 +64,7 @@ const ManageEvents = () => {
                                 <th>Event Name</th>
                                 <th>Date</th>
                                 <th>Type</th>
+                                <th>Location</th> 
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -74,6 +75,7 @@ const ManageEvents = () => {
                                     <td>{event.eventName}</td>
                                     <td>{event.eventDate}</td>
                                     <td>{event.eventType}</td>
+                                    <td>{event.location || 'N/A'}</td> 
                                     <td>
                                         <button
                                             onClick={() => navigate(`/updateEvent/${event._id}`)}

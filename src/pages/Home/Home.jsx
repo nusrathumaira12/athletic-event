@@ -10,7 +10,7 @@ const Home = () => {
 const [events, setEvents] = useState([])
 
     useEffect(()=> {
-fetch('http://localhost:3000/featured-events')
+fetch('https://athletic-event-server.vercel.app/featured-events')
 .then(res=> res.json())
 .then((data)=> setEvents(data))
     }, [])

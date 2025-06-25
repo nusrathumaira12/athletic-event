@@ -17,6 +17,7 @@ const CreateEvent = () => {
             eventName: form.eventName.value,
             eventType: form.eventType.value,
             eventDate: form.date.value,
+            location: form.location.value,
             description: form.description.value,
             image: form.image.value,
             creatorEmail: user?.email || 'N/A',
@@ -77,6 +78,18 @@ const CreateEvent = () => {
                         <label className="block font-semibold">Event Date</label>
                         <input type="date" name="date" required className="input input-bordered w-full" />
                     </div>
+
+                    <div>
+    <label className="block font-semibold">Event Location</label>
+    <input
+        type="text"
+        name="location"
+        required
+        placeholder="Enter location (e.g., Dhaka Stadium)"
+        className="input input-bordered w-full"
+    />
+</div>
+
 
                     <div>
                         <label className="block font-semibold">Event Description</label>

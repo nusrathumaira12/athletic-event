@@ -16,7 +16,7 @@ const EventDetails = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/events/${id}`)
+    fetch(`https://athletic-event-server.vercel.app/events/${id}`)
       .then(res => res.json())
       .then(data => {
         setEvent(data);
@@ -30,7 +30,7 @@ const EventDetails = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/myBookings?email=${user.email}`, {
+      fetch(`https://athletic-event-server.vercel.app/myBookings?email=${user.email}`, {
         credentials: 'include'
       })
         .then(res => res.json())
@@ -69,7 +69,7 @@ const EventDetails = () => {
     };
   
     try {
-      const res = await axios.post('http://localhost:3000/bookings', booking, {
+      const res = await axios.post('https://athletic-event-server.vercel.app/bookings', booking, {
         withCredentials: true,
       });
   

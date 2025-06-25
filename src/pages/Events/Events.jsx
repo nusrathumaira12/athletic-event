@@ -9,7 +9,7 @@ const Events = () => {
 
 
   useEffect(() => {
-    fetch('http://localhost:3000/events')
+    fetch('https://athletic-event-server.vercel.app/events')
       .then((res) => res.json())
       .then((data) => {
         setEvents(data);
@@ -91,7 +91,7 @@ const Events = () => {
                   <p className="text-sm text-gray-700 mb-4">{event.description}</p>
                   <div className="text-sm text-gray-600 space-y-1 mb-4">
                     <p><span className="font-semibold">Type:</span> {event.eventType}</p>
-                    <p><span className="font-semibold">Location:</span> {event.location || "Not Selected"}</p>
+                    <p><span className="font-semibold">Location:</span> {event.location || "Dhaka"}</p>
                     <p><span className="font-semibold">Date:</span> {event.eventDate}  {event.date}</p>
                   </div>
                   <Link

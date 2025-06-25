@@ -14,7 +14,7 @@ const UpdateEvents = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:3000/events/${id}`, {
+        fetch(`https://athletic-event-server.vercel.app/events/${id}`, {
             credentials: 'include'
         })
         .then(res => res.json())
@@ -31,6 +31,7 @@ const handleUpdateEvent = (e) => {
         eventName: form.eventName.value,
         eventType: form.eventType.value,
         eventDate: form.date.value,
+        location: form.location.value,
         description: form.description.value,
         image: form.image.value,
         creatorName: form.creatorName.value,
@@ -65,7 +66,7 @@ if (!eventData) return <p className="text-center mt-10">Loading...</p>;
     return (
                <div className="min-h-screen bg-base-200 flex justify-center items-center px-4 py-10">
                  <Helmet>
-                                <title>UpdateEvent |Athofy</title>
+                                <title>UpdateEventPage |Athofy</title>
                             </Helmet>
             <div className="w-full max-w-2xl bg-white p-8 rounded-lg shadow-md">
                 <h2 className="text-2xl font-bold mb-6 text-center text-orange-600">Update Event</h2>
@@ -91,6 +92,18 @@ if (!eventData) return <p className="text-center mt-10">Loading...</p>;
                         <label className="block font-semibold">Event Date</label>
                         <input type="date" name="date" defaultValue={eventData.eventDate} required className="input input-bordered w-full" />
                     </div>
+
+                    <div>
+    <label className="block font-semibold">Event Location</label>
+    <input
+        type="text"
+        name="location"
+        defaultValue={eventData.location}
+        required
+        className="input input-bordered w-full"
+    />
+</div>
+
 
                     <div>
                         <label className="block font-semibold">Event Description</label>
