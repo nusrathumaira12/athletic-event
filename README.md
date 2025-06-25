@@ -52,7 +52,10 @@ A responsive web app for discovering and booking athletic events with real-time 
 git clone https://github.com/nusrathumaira12/athletic-event.git
 cd athletic-event
 
-```2️⃣ Install Dependencies```
+```md
+2️⃣ Install Dependencies
+
+```bash
 npm install
 
 3️⃣ Add Firebase and Backend Config
