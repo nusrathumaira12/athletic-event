@@ -60,8 +60,11 @@ VITE_API_URL=https://your-backend-url.com
 
 npm run dev
 
+---
+
 
 🙋‍♀️ Author
+
 Nusrat Humaira
 Frontend Developer | MERN Stack Learner
 📧 nusrathum31@gmail.com
