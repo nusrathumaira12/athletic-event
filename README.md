@@ -75,7 +75,7 @@ npm run dev
 
 ---
 
-🙋‍♀️ Author  
+🙋‍♀️ Author
 Nusrat Humaira  
 Frontend Developer | MERN Stack Learner  
 📧 nusrathum31@gmail.com  
