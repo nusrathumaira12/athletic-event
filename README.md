@@ -19,7 +19,7 @@ A responsive web app for discovering and booking athletic events with real-time 
 ## 📡 Backend Repository
 
 🔒 This project uses a separate backend (Node.js, Express, MongoDB) for secure API and JWT auth.  
-🔐 Backend repo is currently private. It can be shared upon request.
+https://github.com/nusrathumaira12/athletic-event-server
 
 ---
 
