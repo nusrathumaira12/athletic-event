@@ -1,12 +1,54 @@
-# React + Vite
+# 🏃‍♀️ Athletic Event Booking App (Client)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive web app for discovering and booking athletic events with real-time data and Firebase authentication.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Site
 
-## Expanding the ESLint configuration
+🌐 [https://athletic-event-2d384.web.app/](https://athletic-event-2d384.web.app/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React, Tailwind CSS
+- **Authentication:** Firebase (Email/Password + Google)
+- **Protected Routes:** JWT Tokens with axios
+- **Routing:** React Router DOM
+- **State & Effects:** React Hooks
+
+---
+
+## ✨ Features
+
+- 🔐 Firebase login and registration (Email & Google)
+- 🛡️ JWT-based route protection (using custom backend)
+- 📅 View event list with search by name/location
+- 🧾 My Bookings page with delete functionality
+- 🧰 Toggle layout: Table/Card View
+- 🌐 Fully responsive on mobile and desktop
+
+---
+
+## 📦 Key Dependencies
+
+- firebase
+- axios
+- react-router-dom
+- sweetalert2
+- jwt-decode
+- framer-motion
+- classnames
+- moment
+
+---
+
+## 🧪 How to Run on Local Machine
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/nusrathumaira12/athletic-event.git
+cd athletic-event
+
