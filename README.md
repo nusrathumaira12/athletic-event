@@ -52,6 +52,14 @@ A responsive web app for discovering and booking athletic events with real-time 
 git clone https://github.com/nusrathumaira12/athletic-event.git
 cd athletic-event
 
+
+## 🧪 How to Run on Local Machine
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/nusrathumaira12/athletic-event.git
+cd athletic-event
 2️⃣ Install Dependencies
 bash
 Copy
