@@ -51,25 +51,32 @@ A responsive web app for discovering and booking athletic events with real-time 
 ```bash
 git clone https://github.com/nusrathumaira12/athletic-event.git
 cd athletic-event
-2️⃣ Install Dependencies
-3️⃣ Add Firebase and Backend Config
+```
+
+2️⃣ Install Dependencies  
+3️⃣ Add Firebase and Backend Config  
 4️⃣ Start the Development Server
 
-bash
-Copy code
+```bash
 npm install
-ini
-Copy code
-VITE_FIREBASE_API_KEY=your_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com
-VITE_API_URL=https://your-backend-url.com
-bash
-Copy code
-npm run dev
-5️⃣ Open your browser at http://localhost:3000
+```
 
-🙋‍♀️ Author
-Nusrat Humaira
-Frontend Developer | MERN Stack Learner
-📧 nusrathum31@gmail.com
-🔗 GitHub Profile
+```ini
+VITE_FIREBASE_API_KEY=your_api_key  
+VITE_FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com  
+VITE_API_URL=https://your-backend-url.com
+```
+
+```bash
+npm run dev
+```
+
+5️⃣ Open your browser at [http://localhost:3000](http://localhost:3000)
+
+---
+
+🙋‍♀️ Author  
+Nusrat Humaira  
+Frontend Developer | MERN Stack Learner  
+📧 nusrathum31@gmail.com  
+🔗 [GitHub Profile](https://github.com/nusrathumaira12)
