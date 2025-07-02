@@ -1,5 +1,9 @@
 
 🏃‍♀️ Athlofy – Sports Event Platform
+
+
+---
+
 Athlofy is a full-stack sports event booking platform where users can discover, register for, and manage various athletic programs. The application is designed to provide a seamless experience for participants and organizers alike.
 ---
 
