@@ -57,8 +57,8 @@ const ManageEvents = () => {
                 <p>No events created by you yet.</p>
             ) : (
                 <div className="overflow-x-auto">
-                    <table className="table w-full bg-white shadow rounded">
-                        <thead className="bg-orange-200">
+                    <table className="table w-full bg-white shadow rounded dark:bg-blue-900">
+                        <thead className="bg-orange-200 dark:bg-orange-600 dark:text-white">
                             <tr>
                                 <th>Serial No</th>
                                 <th>Event Name</th>

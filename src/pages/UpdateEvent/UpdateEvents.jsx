@@ -68,17 +68,17 @@ if (!eventData) return <p className="text-center mt-10">Loading...</p>;
                  <Helmet>
                                 <title>UpdateEvent |Athofy</title>
                             </Helmet>
-            <div className="w-full max-w-2xl bg-white p-8 rounded-lg shadow-md">
+            <div className="w-full max-w-2xl bg-white p-8 rounded-lg shadow-md dark:bg-blue-950">
                 <h2 className="text-2xl font-bold mb-6 text-center text-orange-600">Update Event</h2>
                 <form onSubmit={handleUpdateEvent} className="space-y-4">
                     <div>
                         <label className="block font-semibold">Event Name</label>
-                        <input type="text" name="eventName" defaultValue={eventData.eventName} required className="input input-bordered w-full" />
+                        <input type="text" name="eventName" defaultValue={eventData.eventName} required className="input input-bordered w-full dark:bg-gray-100 dark:text-orange-600" />
                     </div>
 
                     <div>
                         <label className="block font-semibold">Event Type</label>
-                        <select name="eventType" required className="select select-bordered w-full" defaultValue={eventData.eventType}>
+                        <select name="eventType" required className="select select-bordered w-full dark:bg-gray-100 dark:text-orange-600" defaultValue={eventData.eventType}>
                             <option value="">Select an event type</option>
                             <option value="Swimming">Swimming</option>
                             <option value="Sprinting">Sprinting</option>
@@ -90,7 +90,7 @@ if (!eventData) return <p className="text-center mt-10">Loading...</p>;
 
                     <div>
                         <label className="block font-semibold">Event Date</label>
-                        <input type="date" name="date" defaultValue={eventData.eventDate} required className="input input-bordered w-full" />
+                        <input type="date" name="date" defaultValue={eventData.eventDate} required className="input input-bordered w-full dark:bg-gray-100 dark:text-orange-600" />
                     </div>
 
                     <div>
@@ -100,33 +100,33 @@ if (!eventData) return <p className="text-center mt-10">Loading...</p>;
         name="location"
         defaultValue={eventData.location}
         required
-        className="input input-bordered w-full"
+        className="input input-bordered w-full dark:bg-gray-100 dark:text-orange-600"
     />
 </div>
 
 
                     <div>
                         <label className="block font-semibold">Event Description</label>
-                        <textarea name="description" defaultValue={eventData.description} rows="4" required className="textarea textarea-bordered w-full"></textarea>
+                        <textarea name="description" defaultValue={eventData.description} rows="4" required className="textarea textarea-bordered w-full dark:bg-gray-100 dark:text-orange-600"></textarea>
                     </div>
 
                     <div>
                         <label className="block font-semibold">Event Image URL</label>
-                        <input type="url" name="image" defaultValue={eventData.image} required className="input input-bordered w-full" />
+                        <input type="url" name="image" defaultValue={eventData.image} required className="input input-bordered w-full dark:bg-gray-100 dark:text-orange-600" />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label className="block font-semibold">Creator Name</label>
-                            <input type="text" name="creatorName" defaultValue={eventData.creatorName} readOnly className="input input-bordered w-full bg-gray-100" />
+                            <input type="text" name="creatorName" defaultValue={eventData.creatorName} readOnly className="input input-bordered w-full bg-gray-100 dark:bg-gray-100 dark:text-orange-600" />
                         </div>
                         <div>
                             <label className="block font-semibold">Creator Email</label>
-                            <input type="email" name="creatorEmail" defaultValue={eventData.creatorEmail} readOnly className="input input-bordered w-full bg-gray-100" />
+                            <input type="email" name="creatorEmail" defaultValue={eventData.creatorEmail} readOnly className="input input-bordered w-full bg-gray-100 dark:bg-gray-100 dark:text-orange-600" />
                         </div>
                     </div>
 
-                    <button type="submit" className="btn bg-orange-600 text-white w-full hover:bg-orange-700" disabled={isSubmitting}>
+                    <button type="submit" className="btn bg-orange-600 text-white w-full hover:bg-orange-700 " disabled={isSubmitting}>
     {isSubmitting ? (
         <span className="loading loading-spinner loading-sm"></span>
     ) : (

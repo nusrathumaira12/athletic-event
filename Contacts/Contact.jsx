@@ -31,7 +31,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f9f8f7]  dark:from-gray-900 dark:to-gray-800 py-12 px-4">
+    <div className="min-h-screen bg-[#f9f8f7]  dark:from-gray-900 dark:to-gray-800 py-12 px-4 pt-30">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-8">
         {/* Contact Info */}
         <div className="space-y-6">

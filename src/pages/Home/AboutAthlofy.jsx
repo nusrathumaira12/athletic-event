@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaPlay, FaUsers, FaLaughBeam, FaTrophy, FaRunning } from 'react-icons/fa';
-import AboutPic from '../../../public/images/track-field.jpg'
+import AboutPic from '../../../src/images/images/track-field.jpg'
 const AboutAthlofy = () => {
   return (
     <section className="bg-[#f9f8f7] py-12 px-4">

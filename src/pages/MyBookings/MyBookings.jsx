@@ -53,7 +53,7 @@ const MyBookings = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-6 ">
         <h2 className="text-2xl font-bold">My Bookings</h2>
         <button
           onClick={() => setIsTableView(!isTableView)}
@@ -67,9 +67,9 @@ const MyBookings = () => {
         <p>No bookings found.</p>
       ) : isTableView ? (
         <div className="overflow-x-auto">
-          <table className="table w-full bg-white rounded shadow">
+          <table className="table w-full bg-white rounded shadow dark:bg-blue-900">
             <thead>
-              <tr className="bg-orange-200 text-left">
+              <tr className="bg-orange-200 text-left dark:bg-orange-600">
                 <th>Event Name</th>
                 <th>Date</th>
                 <th>Location</th>
@@ -99,7 +99,7 @@ const MyBookings = () => {
       ) : (
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {bookings.map(booking => (
-            <div key={booking._id} className="bg-white rounded shadow p-4 relative">
+            <div key={booking._id} className="bg-white rounded shadow p-4 relative dark:bg-blue-900">
               <img
                 src={booking.image}
                 alt={booking.eventName}
