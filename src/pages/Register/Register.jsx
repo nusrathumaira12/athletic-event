@@ -77,19 +77,19 @@ const Register = () => {
           <Lottie style={{ width: '300px' }} animationData={registerLottie} loop={true}></Lottie>
 
         </div>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl text-blue-950">
+        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl text-blue-950 dark:bg-gray-100">
           <div className="card-body">
             <h1 className="text-5xl font-bold">Register now!</h1>
             <form onSubmit={handleRegister}>
               <fieldset className="fieldset">
               <label className="label">Name</label>
-              <input type="text" name='name' className="input text-black dark:text-white" placeholder="Name"  />
+              <input type="text" name='name' className="input text-black dark:bg-white" placeholder="Name"  />
                 <label className="label">Email</label>
-                <input type="email" name='email' className="input" placeholder="Email" />
+                <input type="email" name='email' className="input dark:bg-white" placeholder="Email" />
                 <label className='label'>Profile Picture URL</label>
-                <input type="PhotoURL" name="photo"   className='input' placeholder='Profile Picture URL'/>
+                <input type="PhotoURL" name="photo"   className='input dark:bg-white' placeholder='Profile Picture URL'/>
                 <label className="label">Password</label>
-                <input type="password" name='password' className="input" placeholder="Password" />
+                <input type="password" name='password' className="input dark:bg-white" placeholder="Password" />
                 <div>
                 <button className="btn border-none mt-4 bg-blue-900 text-white w-full hover:bg-amber-600">Register</button></div>
               </fieldset>

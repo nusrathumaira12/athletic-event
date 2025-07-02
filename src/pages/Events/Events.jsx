@@ -6,6 +6,8 @@ const Events = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchText, setSearchText] = useState('');
+  const [sortOption, setSortOption] = useState('default');
+
 
 
   useEffect(() => {
@@ -21,10 +23,17 @@ const Events = () => {
       });
   }, []);
 
-  const filteredEvents = events.filter(event =>
+  let filteredEvents = events.filter(event =>
     event.eventName.toLowerCase().includes(searchText.toLowerCase()) ||
     event.location?.toLowerCase().includes(searchText.toLowerCase())
   );
+  
+  // Apply sorting
+  if (sortOption === 'name-asc') {
+    filteredEvents.sort((a, b) => a.eventName.localeCompare(b.eventName));
+  } else if (sortOption === 'name-desc') {
+    filteredEvents.sort((a, b) => b.eventName.localeCompare(a.eventName));
+  } 
   
 
   return (
@@ -38,7 +47,7 @@ const Events = () => {
         <div className="flex justify-between items-center mb-12 pr-30">
           <div className='text-center  ml-30'>
             <h2 className="text-xs font-semibold text-orange-600 uppercase items-center text-start">|| ATHLOFY Programs ||</h2>
-            <h1 className="text-4xl font-bold mt-2 text-start">
+            <h1 className="text-4xl font-bold mt-2 text-start dark:text-blue-900">
               Find Your Focus With Our <br />
               <span className="text-orange-500 text-start">Running Programs.</span>
             </h1>
@@ -49,15 +58,32 @@ const Events = () => {
         </div>
 
        
-        <div className="mb-8 md:ml-31 ">
-  <input
-    type="text"
-    placeholder="Search by event name or location..."
-    className="w-full md:w-1/2 px-4 py-2  border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
-    value={searchText}
-    onChange={(e) => setSearchText(e.target.value)}
-  />
+        
+
+<div className=" mb-6 md:pr-10 flex flex-col md:flex-row  justify-between items-center gap-4">
+  <div className="w-full md:w-1/2">
+    <input
+      type="text"
+      placeholder="Search by event name or location..."
+      className="w-full md:ml-28 px-4 py-2 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 dark:text-black"
+      value={searchText}
+      onChange={(e) => setSearchText(e.target.value)}
+    />
+  </div>
+
+  <select
+    value={sortOption}
+    onChange={(e) => setSortOption(e.target.value)}
+    className="px-6 py-2 md:mr-10  border-gray-300 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 dark:text-black"
+  >
+    <option value="default">Sort by</option>
+    <option value="name-asc">Name (A-Z)</option>
+    <option value="name-desc">Name (Z-A)</option>
+    {/* <option value="date-asc">Date (Oldest First)</option>
+    <option value="date-desc">Date (Newest First)</option> */}
+  </select>
 </div>
+
 
         {loading ? (
           <p className="text-center text-lg font-medium">Loading events...</p>
@@ -85,7 +111,7 @@ const Events = () => {
                   )}
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold flex items-center gap-2 mb-2">
+                  <h3 className="text-xl font-bold flex items-center gap-2 mb-2 dark:text-black">
                     🏃 {event.eventName}
                   </h3>
                   <p className="text-sm text-gray-700 mb-4">{event.description}</p>

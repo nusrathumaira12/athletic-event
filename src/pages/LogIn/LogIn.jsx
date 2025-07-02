@@ -43,23 +43,23 @@ const LogIn = () => {
       }
     return (
         <div className="hero bg-[#f5f0ec] min-h-screen">
-        <div className="hero-content gap-3 flex-col lg:flex-row-reverse md:ml-20">
+        <div className="hero-content gap-3 flex-col lg:flex-row-reverse md:ml-20 ">
           <div className="text-center lg:text-left">
             <Lottie style={{ width: '300px' }} animationData={logInLottie} loop={true}></Lottie>
   
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl text-blue-950 py-4">
+          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl text-blue-950 py-4 dark:bg-gray-100">
             <div className="card-body">
               <h1 className="text-5xl font-bold text-center">LogIn now!</h1>
-              <p className="text-sm text-center dark:text-gray-200">Don't have account?{' '}
+              <p className="text-sm text-center dark:text-gray-800">Don't have account?{' '}
             <NavLink to="/register" className="focus:underline   hover:underline text-amber-600">Register here</NavLink>
         </p>
               <form onSubmit={ handleLogIn }>
                 <fieldset className="fieldset">
                   <label className="label">Email</label>
-                  <input type="email" name='email' className="input" placeholder="Email" />
+                  <input type="email" name='email' className="input dark:bg-white" placeholder="Email" />
                   <label className="label">Password</label>
-                  <input type="password" name='password' className="input" placeholder="Password" />
+                  <input type="password" name='password' className="input dark:bg-white" placeholder="Password" />
                   <div><a className="link link-hover">Forgot password?</a></div>
                   <button className="btn  mt-4 bg-blue-900 text-white">LogIn</button>
                 </fieldset>

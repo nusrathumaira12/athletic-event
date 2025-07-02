@@ -14,6 +14,10 @@ import ManageEvents from "../pages/ManageEvents/ManageEvents";
 import CreateEvent from "../pages/CreateEvent/CreateEvent";
 import UpdateEvents from "../pages/UpdateEvent/UpdateEvents";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
+import AboutAthlofy from "../pages/Home/AboutAthlofy";
+import Contact from "../../Contacts/Contact";
+import Privacy from "../pages/Shared/Privacy";
+import Terms from "../pages/Shared/Terms";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +38,22 @@ const router = createBrowserRouter([
       {
         path: '/events',
         Component: Events
+      },
+      {
+        path: '/about',
+        Component: AboutAthlofy,
+      },
+      {
+        path: '/contact',
+        Component: Contact,
+      },
+      {
+        path: '/privacy',
+        Component: Privacy,
+      },
+      {
+        path: '/terms',
+        Component: Terms,
       },
       {
         path: '/events/:id',

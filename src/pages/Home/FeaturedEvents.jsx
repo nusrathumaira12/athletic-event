@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 
 const FeaturedEvents = ({ events }) => {
   return (
-    <section className="bg-orange-50 py-16">
+    <section className="bg-orange-50 pb-16 pt-4">
       <div className="max-w-7xl mx-auto px-4">
         <p className="text-orange-600 text-sm mt-12 font-bold text-center mx-auto">|| EVENT SCHEDULE ||</p>
-        <h2 className="font-bold text-center mb-20 text-5xl">
+        <h2 className="font-bold text-center mb-20 text-5xl dark:text-blue-900">
           🎯 Upcoming Featured Events for <br />
           <span className="text-orange-600">Runners and Athletes.</span>
         </h2>

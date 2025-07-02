@@ -64,10 +64,10 @@ const Banner= () => {
         {athleticEvents.map((event) => (
           <SwiperSlide key={event.id}>
             <div
-              className="h-[700px] flex items-center justify-start bg-cover bg-center text-white"
+              className="h-[630px] flex items-center justify-start bg-cover bg-center text-white"
               style={{ backgroundImage: `url(${event.image})` }}
             >
-              <div className="font-bold bg-opacity-50 p-6 text-3xl rounded-xl text-start max-w-2xl ml-10">
+              <div className="font-bold  p-6 text-3xl rounded-xl text-start max-w-2xl ml-10">
                 <p className='text-sm text-orange-600'>|| WELCOME TO <motion.span
                 animate={
                     {color: ['#ff5733', '#33ff33', '#8a33ff' ],
@@ -77,8 +77,15 @@ const Banner= () => {
               <h2 className="text-6xl font-bold whitespace-pre-line">{highlightLastTwoWords (event.slogan)}</h2>
               <p className="text-base mt-2 whitespace-pre-line font-semibold">{event.description}</p>
              <div className='flex gap-3 mt-5'>
-             <button className="btn text-white border-none bg-orange-600 py-6 px-10">START RUNNING</button>
-             <button className="btn btn-neutral border-white text-white btn-outline py-6 px-10 hover:bg-orange-600">EXPLORE MORE</button>
+             <motion.button
+             whileHover={{ scale: 1.05 }}
+             whileTap={{ scale: 0.95 }}
+             onClick={() => window.location.href = '/events'}
+             className="btn text-white border-none bg-orange-600 py-6 px-10">START RUNNING</motion.button>
+             <button
+             onClick={() => window.location.href = '/about'}
+
+             className="btn btn-neutral border-white text-white btn-outline py-6 px-10 hover:bg-orange-600">EXPLORE MORE</button>
              </div>
               </div>
             </div>

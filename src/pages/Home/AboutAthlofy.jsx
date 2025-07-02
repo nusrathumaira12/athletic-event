@@ -15,15 +15,15 @@ const AboutAthlofy = () => {
           <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-4 shadow-md hover:scale-110 transition">
             <FaPlay className="text-orange-500 text-xl" />
           </button>
-          <button className="absolute bottom-5 right-5 bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 transition text-sm font-semibold">
+          {/* <button className="absolute bottom-5 right-5 bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 transition text-sm font-semibold">
             READ MORE
-          </button>
+          </button> */}
         </div>
 
         {/* Content Section */}
         <div className="flex-1">
           <p className="text-orange-600 font-semibold mb-2 tracking-wide">|| ABOUT ATHLOFY ||</p>
-          <h2 className="text-4xl font-bold leading-tight mb-4 italic">
+          <h2 className="text-4xl font-bold leading-tight mb-4 italic dark:text-blue-900">
             BUILT FOR ATHLETES,<br />
             POWERED <span className="text-orange-600 ">BY PASSION.</span>
           </h2>
@@ -40,33 +40,33 @@ const AboutAthlofy = () => {
           </div>
 
           {/* Why Choose */}
-          <h3 className="text-xl font-bold mb-4">WHY CHOOSE ATHLOFY?</h3>
+          <h3 className="text-xl font-bold mb-4 dark:text-blue-900">WHY CHOOSE ATHLOFY?</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Card 1 */}
             <div className="bg-white p-4 rounded shadow-sm">
               <FaRunning className="text-orange-600 text-2xl mb-2" />
-              <h4 className="font-bold italic">TRAINING RESOURCES</h4>
+              <h4 className="font-bold italic dark:text-blue-900">TRAINING RESOURCES</h4>
               <p className="text-sm text-gray-600">Access tips, workouts, and expert guidance to prepare better.</p>
             </div>
 
             {/* Card 2 */}
             <div className="bg-white p-4 rounded shadow-sm">
               <FaLaughBeam className="text-orange-600 text-2xl mb-2" />
-              <h4 className="font-bold italic">ATHLETE COMMUNITY</h4>
+              <h4 className="font-bold italic dark:text-blue-900">ATHLETE COMMUNITY</h4>
               <p className="text-sm text-gray-600">Meet, compete, and connect with fellow athletes locally.</p>
             </div>
 
             {/* Card 3 */}
             <div className="bg-white p-4 rounded shadow-sm">
               <FaUsers className="text-orange-600 text-2xl mb-2" />
-              <h4 className="font-bold italic">ALL-LEVEL WELCOME</h4>
+              <h4 className="font-bold italic dark:text-blue-900">ALL-LEVEL WELCOME</h4>
               <p className="text-sm text-gray-600">Whether beginner or pro — everyone finds their challenge.</p>
             </div>
 
             {/* Card 4 */}
             <div className="bg-white p-4 rounded shadow-sm">
               <FaTrophy className="text-orange-600 text-2xl mb-2" />
-              <h4 className="font-bold italic">EXCLUSIVE EVENTS</h4>
+              <h4 className="font-bold italic dark:text-blue-900">EXCLUSIVE EVENTS</h4>
               <p className="text-sm text-gray-600">Get early access to marathons, bootcamps, and meetups.</p>
             </div>
           </div>
