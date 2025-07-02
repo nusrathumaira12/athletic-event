@@ -1,25 +1,18 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
+🏃‍♀️ Athlofy – Sports Event Platform
+Athlofy is a full-stack sports event booking platform where users can discover, register for, and manage various athletic programs. The application is designed to provide a seamless experience for participants and organizers alike.
 ---
 
 ## 📂 Client Repository
 
 🔗 [https://github.com/nusrathumaira12/athletic-event](https://github.com/nusrathumaira12/athletic-event)
+This React app is built using Vite for fast development, integrated with Firebase Auth and JWT for secure user sessions.
 
 ---
 
 ## 📡 Backend Repository
 
-🔒 This project uses a separate backend (Node.js, Express, MongoDB) for secure API and JWT auth.  
+A Node.js + Express API using MongoDB for data storage and JWT for secure API authentication.
 https://github.com/nusrathumaira12/athletic-event-server
 
 ---
