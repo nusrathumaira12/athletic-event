@@ -12,12 +12,7 @@ const AboutAthlofy = () => {
             alt="Athletes"
             className=" object-cover w-full h-full"
           />
-          <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-4 shadow-md hover:scale-110 transition">
-            <FaPlay className="text-orange-500 text-xl" />
-          </button>
-          {/* <button className="absolute bottom-5 right-5 bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 transition text-sm font-semibold">
-            READ MORE
-          </button> */}
+         
         </div>
 
         {/* Content Section */}

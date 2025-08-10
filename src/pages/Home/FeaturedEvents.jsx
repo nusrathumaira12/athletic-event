@@ -12,7 +12,7 @@ const FeaturedEvents = ({ events }) => {
           <span className="text-orange-600">Runners and Athletes.</span>
         </h2>
 
-        <div className="grid gap-10 md:grid-cols-2">
+        <div className="grid gap-10 md:grid-cols-3">
           {events.map((event, index) => {
             const date = new Date(event.eventDate || event.date);
             const month = !isNaN(date) ? date.toLocaleString('default', { month: 'short' }).toUpperCase() : 'N/A';
