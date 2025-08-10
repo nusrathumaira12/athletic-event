@@ -29,7 +29,7 @@ const Testimonial = () => {
     ];
 
     return (
-        <section className=" dark:bg-gray-100 dark:text-gray-800 mb-6">
+        <section className=" dark:bg-gray-100 dark:text-gray-800 mb-6 dark:mb-0">
             <div className="container flex flex-col items-center mx-auto md:p-10 md:px-12 ">
                 <h1 className="p-4  text-4xl font-semibold leading-none text-center text-blue-950">
                     What our customers are saying <span className='text-orange-600'>about us</span>
