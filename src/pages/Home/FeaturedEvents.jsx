@@ -30,7 +30,7 @@ const FeaturedEvents = ({ events }) => {
                 <img
                   src={event.image}
                   alt={event.eventName}
-                  className="w-full h-94 object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-74 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 left-4 bg-white text-center px-5 py-4 font-extrabold rounded-md shadow-md">
                   <div className="text-gray-500 text-xl">{month}</div>
@@ -47,9 +47,9 @@ const FeaturedEvents = ({ events }) => {
                   <div>
                     <Link
                       to={`/events/${event._id || event.id}`}
-                      className="inline-block bg-orange-500 text-white font-semibold px-4 py-2 rounded hover:bg-orange-600 transition"
+                      className="btn btn-active bg-orange-500 text-white font-semibold px-4 py-2 rounded hover:bg-orange-600 transition"
                     >
-                      View Details
+                      View more
                     </Link>
                   </div>
                 </div>
