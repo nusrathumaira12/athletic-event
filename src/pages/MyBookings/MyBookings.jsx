@@ -69,7 +69,7 @@ const MyBookings = () => {
         <div className="overflow-x-auto">
           <table className="table w-full bg-white rounded shadow dark:bg-blue-900">
             <thead>
-              <tr className="bg-orange-200 text-left dark:bg-orange-600">
+              <tr className="bg-orange-200 text-left dark:bg-orange-600 dark:text-white">
                 <th>Event Name</th>
                 <th>Date</th>
                 <th>Location</th>

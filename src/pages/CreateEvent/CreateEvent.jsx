@@ -58,12 +58,12 @@ const CreateEvent = () => {
                 <h2 className="text-2xl font-bold mb-6 text-center text-orange-600">Create a New Event</h2>
                 <form onSubmit={handleCreateEvent} className="space-y-4">
                     <div>
-                        <label className="block font-semibold">Event Name</label>
+                        <label className="block font-semibold dark:text-black">Event Name</label>
                         <input type="text" name="eventName" required className="input input-bordered w-full" />
                     </div>
 
                     <div>
-                        <label className="block font-semibold">Event Type</label>
+                        <label className="block font-semibold dark:text-black">Event Type</label>
                         <select name="eventType" required className="select select-bordered w-full">
                             <option value="">Select an event type</option>
                             <option value="Swimming">Swimming</option>
@@ -75,40 +75,40 @@ const CreateEvent = () => {
                     </div>
 
                     <div>
-                        <label className="block font-semibold">Event Date</label>
+                        <label className="block font-semibold dark:text-black">Event Date</label>
                         <input type="date" name="date" required className="input input-bordered w-full" />
                     </div>
 
                     <div>
-    <label className="block font-semibold">Event Location</label>
+    <label className="block font-semibold dark:text-black">Event Location</label>
     <input
         type="text"
         name="location"
         required
         placeholder="Enter location (e.g., Dhaka Stadium)"
-        className="input input-bordered w-full"
+        className="input input-bordered w-full dark:text-white"
     />
 </div>
 
 
                     <div>
-                        <label className="block font-semibold">Event Description</label>
+                        <label className="block font-semibold dark:text-black">Event Description</label>
                         <textarea name="description" rows="4" required className="textarea textarea-bordered w-full"></textarea>
                     </div>
 
                     <div>
-                        <label className="block font-semibold">Event Image URL</label>
+                        <label className="block font-semibold dark:text-black">Event Image URL</label>
                         <input type="url" name="image" required placeholder="https://example.com/image.jpg" className="input input-bordered w-full" />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label className="block font-semibold">Creator Name</label>
-                            <input type="text" name="creatorName" value={user?.displayName || ''} readOnly className="input input-bordered w-full bg-gray-100" />
+                            <label className="block font-semibold dark:text-black">Creator Name</label>
+                            <input type="text" name="creatorName" value={user?.displayName || ''} readOnly className="input input-bordered w-full bg-gray-800" />
                         </div>
                         <div>
-                            <label className="block font-semibold">Creator Email</label>
-                            <input type="email" name="creatorEmail" value={user?.email || ''} readOnly className="input input-bordered w-full bg-gray-100" />
+                            <label className="block font-semibold dark:text-black">Creator Email</label>
+                            <input type="email" name="creatorEmail" value={user?.email || ''} readOnly className="input input-bordered w-full bg-gray-800" />
                         </div>
                     </div>
 
